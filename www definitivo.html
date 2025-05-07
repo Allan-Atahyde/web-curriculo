@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Wide Web - Simulação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            width: 70%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .description {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .button-container div {
+            display: inline-block;
+            background-color: #0073e6;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            width: 300px;
+            text-decoration: none;
+        }
+        .button-container div:hover {
+            background-color: #005bb5;
+        }
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9f7fd;
+            border: 1px solid #cce0f7;
+            display: none;
+            border-radius: 5px;
+        }
+        .response.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">World Wide Web</div>
+    <div class="description">
+        O projeto WorldWideWeb visa dar acesso universal a um grande universo de documentos interligados.
+    </div>
+    <div class="button-container">
+        <div onclick="showInfo('O que está por aí?')">
+            O que está por aí?
+        </div>
+        <div onclick="showInfo('Ajuda')">
+            Ajuda
+        </div>
+        <div onclick="showInfo('Software')">
+            Software
+        </div>
+        <div onclick="showInfo('Pessoas')">
+            Pessoas
+        </div>
+        <div onclick="showInfo('História')">
+            História
+        </div>
+    </div>
+
+    <div class="response" id="response">
+        <!-- Resposta será exibida aqui -->
+    </div>
+</div>
+
+<script>
+    function showInfo(section) {
+        const responseElement = document.getElementById('response');
+        responseElement.classList.add('active');
+        
+        switch (section) {
+            case 'O que está por aí?':
+                responseElement.innerHTML = `
+                    <strong>O que está por aí?</strong><br>
+                    Este é o início da internet, onde você pode encontrar informações sobre muitos tópicos.<br>
+                    No começo, existiam apenas documentos textuais e links entre eles.
+                `;
+                break;
+            case 'Ajuda':
+                responseElement.innerHTML = `
+                    <strong>Ajuda</strong><br>
+                    A internet está em desenvolvimento, e a ajuda está disponível em alguns sites de referência.<br>
+                    Encontre informações sobre como navegar e acessar conteúdo.
+                `;
+                break;
+            case 'Software':
+                responseElement.innerHTML = `
+                    <strong>Software</strong><br>
+                    O software para acessar a World Wide Web no início era bastante básico.<br>
+                    O navegador original era o WorldWideWeb, desenvolvido por Tim Berners-Lee.
+                `;
+                break;
+            case 'Pessoas':
+                responseElement.innerHTML = `
+                    <strong>Pessoas</strong><br>
+                    Pessoas ao redor do mundo começaram a se conectar através da Web.<br>
+                    Universidades, pesquisadores e entusiastas estavam animados com as possibilidades de comunicação.
+                `;
+                break;
+            case 'História':
+                responseElement.innerHTML = `
+                    <strong>História</strong><br>
+                    A World Wide Web foi criada por Tim Berners-Lee em 1990, enquanto ele trabalhava no CERN.<br>
+                    O objetivo era permitir que pesquisadores compartilhassem informações de forma rápida e eficaz.
+                `;
+                break;
+            default:
+                responseElement.innerHTML = 'Informação não encontrada.';
+        }
+    }
+</script>
+
+</body>
+</html>
