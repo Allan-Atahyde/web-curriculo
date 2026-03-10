@@ -1,102 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<style>
-    *{
-        
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        margin: 0px;
-        padding: 5px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario CPF</title>
 
-    }
-    .navbar{
-        background-color: #beb6b6;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .fotoNome{
-        margin-top: 50px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-    .lucas{
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        border: 5px solid rgb(228, 7, 7);
-        margin-right: 20px;
-        
-        
-    }
-    .rodape{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    }
-    .rodape a{
-        margin-left: 20px;
-        margin-top: 20px;
-    }
+<style>
+.erro {
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+
+.campo-erro {
+    border: 2px solid red;
+}
+
+.campo-correto {
+    border: 2px solid green;
+}
 </style>
 
-<div class="navbar">
-        <a href="#">Home</a>
-        <a href="contato.html">Contatos</a>
+<script>
+function validarCPF() {
+    const cpf = document.getElementById("cpf");
+    const erro = document.getElementById("erroCPF");
 
-    </div>
-    <div class="fotoNome" >
-        <img class="lucas moura-jpg" src="./img/lucas moura.jpg">
-        <h1></h1>
-    </div>
-    <div>
-        <h3>
-            Sobre mim: 
-        </h3>
-        <p>
-            Lucas Rodrigues Moura da Silva (São Paulo, 13 de agosto de 1992) é um futebolista brasileiro que atua como meia-atacante ou ponta. Atualmente joga pelo São Paulo. entre suas maiores conquistas na carreira estao a copa do brasil,copa sul-americana e a supercopa do brasil pelo são paulo futebol clube e a copa das confederaçoes de 2013 conquistada pela seleçao brasileira.
-        </p>
-    </div>
-        <div>
-            <h3>
-                Formação:
-            </h3>
-            <p>
-                Aos dez anos de idade, Lucas foi para o Corinthians, onde permaneceu nas categorias de base durante três anos, até completar 13 anos de idade. No mesmo momento em que chegou ao Corinthians, foi convidado pelos dirigentes do São Paulo para fazer parte das categorias de base do Tricolor.
-            </p>
-        </div>
-        <div>
-            <h3>
-                Carreira:
-            </h3>
-            <p>
-                São Paulo, PSG, Tottenham, Seleção Brasileira.
-            </p>
-        </div>
-    </div>
-    
-    <div class="rodape">
-        <a href="https://br.linkedin.com/">
-            <img src="./img/icons8-linkedin-50.png">
-            <h3>Linkedin</h3>
-        </a>
-        <a href="https://www.instagram.com/">
-            <img src="./img/icons8-instagram-50.png">
-            <h3>Instagram</h3>
-        </a>
-        <a href="https://github.com/">
-            <img src="./img/icons8-github-50.png">
-            <h3>Github</h3>
-        </a>
-    </div>
-    
+    if (cpf.value.length != 11) {
+        cpf.classList.add("campo-erro");
+        cpf.classList.remove("campo-correto");
+        erro.style.display = "block";
+    } else {
+        cpf.classList.remove("campo-erro");
+        cpf.classList.add("campo-correto");
+        erro.style.display = "none";
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>Formulario CPF</h1>
+
+<input type="text" id="cpf" placeholder="Digite seu CPF">
+
+<input type="button" value="Validar CPF" onclick="validarCPF()">
+
+<p id="erroCPF" class="erro">CPF inválido, Tente Novamente!</p>
+
 </body>
 </html>
