@@ -1,54 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulario CPF</title>
-
-<style>
-.erro {
-    color: red;
-    font-size: 14px;
-    display: none;
-}
-
-.campo-erro {
-    border: 2px solid red;
-}
-
-.campo-correto {
-    border: 2px solid green;
-}
-</style>
-
-<script>
-function validarCPF() {
-    const cpf = document.getElementById("cpf");
-    const erro = document.getElementById("erroCPF");
-
-    if (cpf.value.length != 11) {
-        cpf.classList.add("campo-erro");
-        cpf.classList.remove("campo-correto");
-        erro.style.display = "block";
-    } else {
-        cpf.classList.remove("campo-erro");
-        cpf.classList.add("campo-correto");
-        erro.style.display = "none";
-    }
-}
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-
-<h1>Formulario CPF</h1>
-
-<input type="text" id="cpf" placeholder="Digite seu CPF">
-
-<input type="button" value="Validar CPF" onclick="validarCPF()">
-
-<p id="erroCPF" class="erro">CPF inválido, Tente Novamente!</p>
-
+    <script src="index.js"></script>
 </body>
+
 </html>
